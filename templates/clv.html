@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Customer Value – RetailPredict 360{% endblock %}
+{% block shell_title %}Customer Value Snapshot{% endblock %}
+{% block shell_subtitle %}Look at tenure, frequency and behaviour to sense if someone might be worth extra effort.{% endblock %}
+
+{% block content %}
+<div class="row g-4 align-items-stretch">
+  <div class="col-lg-7">
+    <div class="card-3d h-100">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div>
+          <h5 class="card-heading mb-1">Customer behaviour snapshot</h5>
+          <p class="muted mb-0">
+            Fill in how long they have been around, how often they buy and how they behave with discounts and returns.
+          </p>
+        </div>
+      </div>
+
+      <form method="POST" class="mt-3">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Tenure (months)</label>
+            <input type="number" class="form-control" name="tenure_months" min="1" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Orders per month</label>
+            <input type="number" step="0.1" class="form-control" name="orders_per_month" min="0.1" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Average order value (₹)</label>
+            <input type="number" step="0.1" class="form-control" name="avg_order_value" min="0" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Recency (days since last order)</label>
+            <input type="number" class="form-control" name="recency_days" min="1" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Discount usage rate (0–1)</label>
+            <input type="number" step="0.01" min="0" max="1" class="form-control" name="discount_usage_rate" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Return rate (0–1)</label>
+            <input type="number" step="0.01" min="0" max="1" class="form-control" name="return_rate" required>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+          <button type="submit" class="btn btn-warning btn-pill">
+            Get value estimate
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-lg-5">
+    <div class="card-3d h-100">
+      <h5 class="card-heading mb-1">Value tier & notes</h5>
+      <p class="muted mb-2">
+        This gives you a sense of how valuable the customer could be over the next year and how much effort they might deserve.
+      </p>
+
+      {% if result %}
+        <div class="summary-panel mt-2">
+          <div class="small text-uppercase text-muted mb-1">Estimated value (next 12 months)</div>
+          <div class="display-6 mb-1">₹ {{ result.prediction }}</div>
+          {% if result.segment %}
+            <div class="small mb-1">Tier: <strong>{{ result.segment }}</strong></div>
+          {% endif %}
+          <div class="small mb-2">{{ result.recommendation }}</div>
+        </div>
+      {% else %}
+        <div class="summary-panel mt-2">
+          <div class="small text-uppercase text-muted mb-1">No estimate yet</div>
+          <div class="small">
+            Once you submit a profile, you’ll see an estimated value, a simple tier tag and a short note to guide how much attention they might warrant.
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
