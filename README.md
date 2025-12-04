@@ -41,17 +41,17 @@ pip install numpy pandas matplotlib seaborn scikit-learn flask joblib
 This generates cleaned CSV files used for model training.
 ```
 ```
-Copy code
+
 python prepare_data.py
 🔹 3. Train All Three Models
 This creates the .pkl model files.
 ```
 ```
-Copy code
+
 python train_models.py
 After running, you will have:
 ```
-Copy code
+```
 footfall_model.pkl  
 delivery_model.pkl  
 clv_model.pkl
@@ -59,9 +59,6 @@ clv_model.pkl
 ```
 🔹 4. Run the Web App
 This starts the animated Flask interface.
-
-
-Copy code
 python web_app.py
 Open in your browser:
 ```
