@@ -39,35 +39,38 @@ Run in CMD / Anaconda Prompt:
 pip install numpy pandas matplotlib seaborn scikit-learn flask joblib
 🔹 2. Prepare (Clean) the Data
 This generates cleaned CSV files used for model training.
-
-```bash
+```
+```
 Copy code
 python prepare_data.py
 🔹 3. Train All Three Models
 This creates the .pkl model files.
-
-bash
+```
+```
 Copy code
 python train_models.py
 After running, you will have:
-
+```
 Copy code
 footfall_model.pkl  
 delivery_model.pkl  
 clv_model.pkl
+```
+```
 🔹 4. Run the Web App
 This starts the animated Flask interface.
 
-bash
+
 Copy code
 python web_app.py
 Open in your browser:
-
+```
+```
 arduino
 Copy code
 http://xxx.x.x.x:xxxx
 This gives you a text-based menu to run all 3 models.
-
+```
 ⭐ Business Applications
 Footfall: Staff optimization, inventory planning
 
