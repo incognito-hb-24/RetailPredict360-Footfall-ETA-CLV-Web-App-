@@ -63,7 +63,7 @@ Open in your browser:
 http://xxx.x.x.x:xxxx
 This gives you a text-based menu to run all 3 models.
 ```
-⭐ Business Applications
+⭐ Business Applications<br>
 Footfall: Staff optimization, inventory planning
 
 Delivery: ETA accuracy, route planning
