@@ -45,13 +45,11 @@ This generates cleaned CSV files used for model training.
 python prepare_data.py
 🔹 3. Train All Three Models
 This creates the .pkl model files.
-```
-```
+
 
 python train_models.py
 After running, you will have:
-```
-```
+
 footfall_model.pkl  
 delivery_model.pkl  
 clv_model.pkl
@@ -61,10 +59,7 @@ clv_model.pkl
 This starts the animated Flask interface.
 python web_app.py
 Open in your browser:
-```
-```
-arduino
-Copy code
+
 http://xxx.x.x.x:xxxx
 This gives you a text-based menu to run all 3 models.
 ```
